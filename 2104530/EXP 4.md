@@ -299,11 +299,4 @@
 
     </LinearLayout>
 </ScrollView>
-```
 
----
-
-**Conclusion:**  
-In this experiment, we learned how to use different layout types in Android: Linear, Relative, Grid, and Table layouts. These are essential for creating effective and organized user interfaces.
-
----
