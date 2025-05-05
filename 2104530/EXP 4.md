@@ -112,7 +112,8 @@
 
 ### Screenshot
 
-![Signup Page](s1.png)
+![Signup Page Screenshot](s1.png)
+
 
 ### XML Code
 
