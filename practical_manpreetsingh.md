@@ -842,3 +842,200 @@ This example shows how to create a calculator interface using a combination of C
 - Nest layouts strategically for complex UIs
 - Use weight attributes for proportional sizing
 - ConstraintLayout reduces layout nesting and improves performance
+
+
+
+# Extended Android UI Layout using ConstraintLayout
+
+This layout extends the previous survey form by adding:
+
+- A `CheckBox` for expressing preference
+- A `ChipGroup` for feature rating
+- A new question for recommendation
+
+## XML Code Snippet (continued `activity_main.xml`)
+
+```xml
+<!-- Question 1 TextView -->
+<TextView
+    android:id="@+id/textViewQuestion1"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:text="Do you like our app?"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/textViewTitle"
+    android:layout_marginTop="16dp"
+    android:layout_marginBottom="8dp" />
+
+<!-- CheckBox for like option -->
+<CheckBox
+    android:id="@+id/checkBox"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="I like it"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/textViewQuestion1"
+    android:layout_marginBottom="16dp" />
+
+<!-- Question 2 TextView -->
+<TextView
+    android:id="@+id/textViewQuestion2"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:text="Rate the app features:"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/checkBox"
+    android:layout_marginTop="16dp"
+    android:layout_marginBottom="8dp" />
+
+<!-- ChipGroup for features -->
+<com.google.android.material.chip.ChipGroup
+    android:id="@+id/chipGroup"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/textViewQuestion2"
+    android:layout_marginBottom="16dp"
+    android:orientation="horizontal">
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Feature 1" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Feature 2" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Feature 3" />
+</com.google.android.material.chip.ChipGroup>
+
+<!-- Question 3 TextView -->
+<TextView
+    android:id="@+id/textViewQuestion3"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:text="Would you recommend our app?"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/chipGroup"
+    android:layout_marginTop="16dp"
+    android:layout_marginBottom="8dp" />
+# Final Part of UI Layout – activity_main.xml
+
+This section completes the UI with controls for submitting the form and interacting through toggles and icons.
+
+## XML Code Snippet (continued)
+
+```xml
+<!-- Question 3 TextView -->
+<TextView
+    android:id="@+id/textViewQuestion3"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:text="Would you recommend our app?"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/chipGroup"
+    android:layout_marginTop="16dp"
+    android:layout_marginBottom="8dp" />
+
+<!-- RadioGroup for recommendations -->
+<RadioGroup
+    android:id="@+id/radioGroup"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/textViewQuestion3"
+    android:layout_marginBottom="16dp" />
+
+<!-- ToggleButton for notifications -->
+<ToggleButton
+    android:id="@+id/toggleButton"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:textOff="Enable Notifications"
+    android:textOn="Disable Notifications"
+    android:layout_marginTop="112dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/radioGroup"
+    app:layout_constraintHorizontal_bias="0.0" />
+
+<!-- Submit Button -->
+<Button
+    android:id="@+id/button"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:text="Submit"
+    android:layout_marginTop="28dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/toggleButton"
+    app:layout_constraintHorizontal_bias="0.0" />
+
+<!-- ImageButton for camera -->
+<ImageButton
+    android:id="@+id/imageButton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@android:drawable/ic_menu_camera"
+    android:layout_marginTop="32dp"
+    app:layout_constraintTop_toBottomOf="@id/button"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.473" />
+
+<!-- FloatingActionButton -->
+<com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/fab"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@android:drawable/ic_dialog_email"
+    android:layout_marginTop="16dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.473" />
+
+
+# Final UI Elements – activity_main.xml
+
+This section adds individual `RadioButton` choices and completes the layout.
+
+
+```xml
+<!-- Additional layout constraint (if required) -->
+app:layout_constraintTop_toBottomOf="@id/imageButton"
+app:layout_constraintVertical_bias="0.0" />
+
+<!-- RadioButton - Yes -->
+<RadioButton
+    android:id="@+id/radioButton1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Yes"
+    tools:layout_editor_absoluteX="21dp"
+    tools:layout_editor_absoluteY="279dp" />
+
+<!-- RadioButton - No -->
+<RadioButton
+    android:id="@+id/radioButton2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="No"
+    tools:layout_editor_absoluteX="123dp"
+    tools:layout_editor_absoluteY="282dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
