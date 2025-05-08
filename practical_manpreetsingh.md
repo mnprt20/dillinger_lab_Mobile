@@ -853,367 +853,155 @@ This layout extends the previous survey form by adding:
 - A `ChipGroup` for feature rating
 - A new question for recommendation
 
-## XML Code Snippet (continued `activity_main.xml`)
-
-```xml
-<!-- Question 1 TextView -->
-<TextView
-    android:id="@+id/textViewQuestion1"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:text="Do you like our app?"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/textViewTitle"
-    android:layout_marginTop="16dp"
-    android:layout_marginBottom="8dp" />
-
-<!-- CheckBox for like option -->
-<CheckBox
-    android:id="@+id/checkBox"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="I like it"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/textViewQuestion1"
-    android:layout_marginBottom="16dp" />
-
-<!-- Question 2 TextView -->
-<TextView
-    android:id="@+id/textViewQuestion2"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:text="Rate the app features:"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/checkBox"
-    android:layout_marginTop="16dp"
-    android:layout_marginBottom="8dp" />
-
-<!-- ChipGroup for features -->
-<com.google.android.material.chip.ChipGroup
-    android:id="@+id/chipGroup"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/textViewQuestion2"
-    android:layout_marginBottom="16dp"
-    android:orientation="horizontal">
-
-    <com.google.android.material.chip.Chip
-        android:id="@+id/chip1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Feature 1" />
-
-    <com.google.android.material.chip.Chip
-        android:id="@+id/chip2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Feature 2" />
-
-    <com.google.android.material.chip.Chip
-        android:id="@+id/chip3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Feature 3" />
-</com.google.android.material.chip.ChipGroup>
-
-<!-- Question 3 TextView -->
-<TextView
-    android:id="@+id/textViewQuestion3"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:text="Would you recommend our app?"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/chipGroup"
-    android:layout_marginTop="16dp"
-    android:layout_marginBottom="8dp" />
-# Final Part of UI Layout – activity_main.xml
-
-This section completes the UI with controls for submitting the form and interacting through toggles and icons.
-
-## XML Code Snippet (continued)
-
-```xml
-<!-- Question 3 TextView -->
-<TextView
-    android:id="@+id/textViewQuestion3"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:text="Would you recommend our app?"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/chipGroup"
-    android:layout_marginTop="16dp"
-    android:layout_marginBottom="8dp" />
-
-<!-- RadioGroup for recommendations -->
-<RadioGroup
-    android:id="@+id/radioGroup"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/textViewQuestion3"
-    android:layout_marginBottom="16dp" />
-
-<!-- ToggleButton for notifications -->
-<ToggleButton
-    android:id="@+id/toggleButton"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:textOff="Enable Notifications"
-    android:textOn="Disable Notifications"
-    android:layout_marginTop="112dp"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/radioGroup"
-    app:layout_constraintHorizontal_bias="0.0" />
-
-<!-- Submit Button -->
-<Button
-    android:id="@+id/button"
-    android:layout_width="0dp"
-    android:layout_height="wrap_content"
-    android:text="Submit"
-    android:layout_marginTop="28dp"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/toggleButton"
-    app:layout_constraintHorizontal_bias="0.0" />
-
-<!-- ImageButton for camera -->
-<ImageButton
-    android:id="@+id/imageButton"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:src="@android:drawable/ic_menu_camera"
-    android:layout_marginTop="32dp"
-    app:layout_constraintTop_toBottomOf="@id/button"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.473" />
-
-<!-- FloatingActionButton -->
-<com.google.android.material.floatingactionbutton.FloatingActionButton
-    android:id="@+id/fab"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:src="@android:drawable/ic_dialog_email"
-    android:layout_marginTop="16dp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.473" />
-
-
-# Final UI Elements – activity_main.xml
-
-This section adds individual `RadioButton` choices and completes the layout.
-
-
-```xml
-<!-- Additional layout constraint (if required) -->
-app:layout_constraintTop_toBottomOf="@id/imageButton"
-app:layout_constraintVertical_bias="0.0" />
-
-<!-- RadioButton - Yes -->
-<RadioButton
-    android:id="@+id/radioButton1"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Yes"
-    tools:layout_editor_absoluteX="21dp"
-    tools:layout_editor_absoluteY="279dp" />
-
-<!-- RadioButton - No -->
-<RadioButton
-    android:id="@+id/radioButton2"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="No"
-    tools:layout_editor_absoluteX="123dp"
-    tools:layout_editor_absoluteY="282dp" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
-
-# EXPERIMENT NO.7
-## UI Using Widgets Palette with RelativeLayout
-
-This layout demonstrates the use of the following widgets:
-- ProgressBar
-- SeekBar
-- RatingBar
-- Switch
-
-All widgets are positioned using `RelativeLayout`.
+# 📱 Android UI and Java Code for Activity with Widgets, Fragments, and Constraints
 
 ---
 
-## XML Code (activity_main.xml)
+## 🔹 `activity_main.xml` – Main Layout with Constraints and Widgets
 
 ```xml
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp"
-    tools:context=".MainActivity">
-
-    <!-- Description for Progress Bar -->
-    <TextView
-        android:id="@+id/progressBarLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Progress Bar of your Project"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-    <!-- Progress Bar -->
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/progressBarLabel"
-        android:layout_marginTop="10dp"
-        android:indeterminate="false"
-        android:progress="50"
-        style="?android:attr/progressBarStyleHorizontal" />
-
-    <!-- Description for Seek Bar -->
-    <TextView
-        android:id="@+id/seekBarLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/progressBar"
-        android:layout_marginTop="24dp"
-        android:text="Seek Bar for objectives"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-    <!-- Seek Bar -->
-    <SeekBar
-        android:id="@+id/seekBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/seekBarLabel"
-        android:layout_marginTop="10dp"
-        android:max="100"
-        android:progress="50" />
-
-    <!-- Description for Rating Bar -->
-    <TextView
-        android:id="@+id/ratingBarLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/seekBar"
-        android:layout_marginTop="24dp"
-        android:text="Rating to the Project"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-    <!-- Rating Bar -->
-    <RatingBar
-        android:id="@+id/ratingBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/ratingBarLabel"
-        android:layout_marginTop="22dp"
-        android:numStars="5"
-        android:rating="3.5" />
-
-    <!-- Description for Switch -->
-    <TextView
-        android:id="@+id/switchLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/ratingBar"
-        android:layout_marginTop="19dp"
-        android:text="Accepted or Not"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-    <!-- Switch -->
-    <Switch
-        android:id="@+id/switch1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/switchLabel"
-        android:layout_marginTop="12dp"
-        android:text="Toggle Switch" />
-
-</RelativeLayout>
-
-
----
-
-## 📁 Files Involved:
-
-- `activity_main.xml` – Main layout containing three buttons and a FragmentContainerView.
-- `fragment_first.xml` – First fragment UI layout.
-
----
-
-## 📄 activity_main.xml
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
+    android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!-- Horizontal Button Group -->
-    <LinearLayout
-        android:layout_width="match_parent"
+    <!-- Question 1 TextView -->
+    <TextView
+        android:id="@+id/textViewQuestion1"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:text="Do you like our app?"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp" />
+
+    <!-- CheckBox for like option -->
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="I like it"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewQuestion1"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Question 2 TextView -->
+    <TextView
+        android:id="@+id/textViewQuestion2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Rate the app features:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/checkBox"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp" />
+
+    <!-- ChipGroup for features -->
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroup"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewQuestion2"
+        android:layout_marginBottom="16dp"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btn1"
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1"
-            android:text="First" />
+            android:text="Feature 1" />
 
-        <Button
-            android:id="@+id/btn2"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1"
-            android:text="Second" />
-
-        <Button
-            android:id="@+id/btn3"
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Third" />
-    </LinearLayout>
+            android:text="Feature 2" />
 
-    <!-- Fragment Container -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="682dp"
-        android:orientation="vertical">
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chip3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Feature 3" />
+    </com.google.android.material.chip.ChipGroup>
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/fragmentContainer"
-            android:name="com.example.fragments.FirstFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </LinearLayout>
-</LinearLayout>
-## 📄 fragment_first.xml
+    <!-- Question 3 TextView -->
+    <TextView
+        android:id="@+id/textViewQuestion3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Would you recommend our app?"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/chipGroup"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp" />
+
+    <!-- RadioGroup for recommendations -->
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewQuestion3"
+        android:layout_marginBottom="16dp" />
+
+    <!-- ToggleButton for notifications -->
+    <ToggleButton
+        android:id="@+id/toggleButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textOff="Enable Notifications"
+        android:textOn="Disable Notifications"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/radioGroup" />
+
+    <!-- Submit Button -->
+    <Button
+        android:id="@+id/button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toggleButton" />
+
+    <!-- ImageButton for camera -->
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_menu_camera"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- FloatingActionButton -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_dialog_email"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+```
+
+## 🔹 `fragment_first.xml` – First Fragment Layout
 
 ```xml
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -1223,23 +1011,21 @@ All widgets are positioned using `RelativeLayout`.
     android:background="#ff4564"
     tools:context=".FirstFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:id="@+id/t1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
         android:gravity="center"
         android:text="fragment1"
         android:textColor="#ffffff"
         android:textSize="30sp"
         android:textStyle="bold" />
 </FrameLayout>
+```
 
+## 🔹 Java Code – `MainActivity.java`
 
-
-
-
+```java
 package com.example.fragments;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -1292,3 +1078,4 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 }
+```
