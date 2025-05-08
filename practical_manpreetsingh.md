@@ -1079,3 +1079,190 @@ public class MainActivity extends AppCompatActivity {
     }
 }
 ```
+
+
+
+# EXPERIMENT NO 8: Android Security and Debugging
+
+## Objective:
+To implement the concept of permission and perform request for permission to access different hardware components of a mobile device.
+
+---
+
+## Step 1: Declare Permissions in the Android Manifest File
+
+In Android, permissions are declared in the `AndroidManifest.xml` file using the `<uses-permission>` tag.
+
+```xml
+<!-- Declaring the required permissions -->
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.CAMERA" />
+```
+
+---
+
+## Step 2: Modify `activity_main.xml` to Add Buttons
+
+Add two buttons to request permission on button click. Open the `activity_main.xml` file and include two buttons.
+
+---
+
+## Step 3: Check and Request Permissions
+
+Check whether permission is already granted or not. If not, request the user for the required permission.
+
+> Starting from Android 6.0 (API level 23), users can revoke permissions at any time. Therefore, apps must check for permissions each time before accessing protected resources.
+
+```java
+// Function to check and request permission
+public void checkPermission(String permission, int requestCode) {
+    // Checking if permission is not granted
+    if (ContextCompat.checkSelfPermission(MainActivity.this, permission)
+        == PackageManager.PERMISSION_DENIED) {
+
+        // Requesting the permission
+        ActivityCompat.requestPermissions(MainActivity.this, new String[] { permission }, requestCode);
+    } else {
+        Toast.makeText(MainActivity.this, "Permission already granted", Toast.LENGTH_SHORT).show();
+    }
+}
+```
+
+---
+
+## Step 4: Override `onRequestPermissionsResult()`
+
+`onRequestPermissionsResult()` is called when the user grants or declines the permission.
+
+`requestCode` is used to identify which permission was requested. A Toast message is used to indicate the result.
+
+```java
+@Override
+public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+    if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+        Toast.makeText(this, "Permission GRANTED", Toast.LENGTH_SHORT).show();
+    } else {
+        Toast.makeText(this, "Permission DENIED", Toast.LENGTH_SHORT).show();
+    }
+}
+```
+
+---
+
+
+
+# Experiment No. 9: Android Security and Debugging
+
+## Objective:
+To perform debugging and testing of an Android app using tools like **Logcat**, **Android Debug Bridge (ADB)**, and **DDMS**.
+
+---
+
+## Introduction:
+**Logcat** is an important tool in Android Studio. It helps developers debug the code when an application is not running properly or has crashed.
+
+---
+
+## Steps to Run Logcat in Android Studio:
+
+### 1️⃣ Create a New Project
+- Open Android Studio.
+- Select **New Project** → choose **Empty Activity** → click **Next** and finish project creation.
+
+---
+
+### 2️⃣ Modify `activity_main.xml`
+- Go to `res/layout/activity_main.xml`.
+- By default, there’s a `TextView`. Set the `id` for this `TextView`.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+```
+
+---
+
+### 3️⃣ Update `MainActivity.java`
+- Go to `MainActivity.java`.
+- Create a `TextView` object and initialize it using `findViewById()`.
+
+```java
+package com.example.logcatexample;
+
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+    TextView textView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        textView = findViewById(R.id.textview);
+    }
+}
+```
+
+---
+
+### 4️⃣ Run the Application
+- Connect a physical or virtual device.
+- Click the **Run** button.
+- The application is installed, but it may crash immediately.
+
+---
+
+### 5️⃣ Debug Using Logcat
+- Open **Logcat** window in Android Studio.
+- Click **Run** again.
+- Check the logs for any errors.
+- Scroll to locate error lines (usually marked in red or orange).
+
+---
+
+### 6️⃣ Add Log Messages in `MainActivity.java`
+- Inside the `onCreate()` method, add the following Log statements:
+
+```java
+Log.v("MainActivity1", "Inside onCreate()");
+Log.d("MainActivity2", "Inside onCreate()");
+Log.i("MainActivity3", "Inside onCreate()");
+Log.w("MainActivity4", "Inside onCreate()");
+Log.e("MainActivity5", "Inside onCreate()");
+```
+
+---
+
+### 7️⃣ Verify Logs in Logcat
+- Run the application.
+- Open **Logcat**.
+- Use the **Search option** to filter messages by their TAG name, for example: `MainActivity3`.
+- Verify that the log messages are printed as expected.
+
+---
+
+## Conclusion:
+This experiment demonstrated how to use **Logcat** for debugging Android applications and how to track application logs through different log levels: **Verbose, Debug, Info, Warn, Error**.
