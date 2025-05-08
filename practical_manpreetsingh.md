@@ -1039,3 +1039,112 @@ app:layout_constraintVertical_bias="0.0" />
     tools:layout_editor_absoluteY="282dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+# EXPERIMENT NO. 6
+## UI Using Widgets Palette with RelativeLayout
+
+This layout demonstrates the use of the following widgets:
+- ProgressBar
+- SeekBar
+- RatingBar
+- Switch
+
+All widgets are positioned using `RelativeLayout`.
+
+---
+
+## XML Code (activity_main.xml)
+
+```xml
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <!-- Description for Progress Bar -->
+    <TextView
+        android:id="@+id/progressBarLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Progress Bar of your Project"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <!-- Progress Bar -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/progressBarLabel"
+        android:layout_marginTop="10dp"
+        android:indeterminate="false"
+        android:progress="50"
+        style="?android:attr/progressBarStyleHorizontal" />
+
+    <!-- Description for Seek Bar -->
+    <TextView
+        android:id="@+id/seekBarLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/progressBar"
+        android:layout_marginTop="24dp"
+        android:text="Seek Bar for objectives"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <!-- Seek Bar -->
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/seekBarLabel"
+        android:layout_marginTop="10dp"
+        android:max="100"
+        android:progress="50" />
+
+    <!-- Description for Rating Bar -->
+    <TextView
+        android:id="@+id/ratingBarLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/seekBar"
+        android:layout_marginTop="24dp"
+        android:text="Rating to the Project"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <!-- Rating Bar -->
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ratingBarLabel"
+        android:layout_marginTop="22dp"
+        android:numStars="5"
+        android:rating="3.5" />
+
+    <!-- Description for Switch -->
+    <TextView
+        android:id="@+id/switchLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ratingBar"
+        android:layout_marginTop="19dp"
+        android:text="Accepted or Not"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <!-- Switch -->
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/switchLabel"
+        android:layout_marginTop="12dp"
+        android:text="Toggle Switch" />
+
+</RelativeLayout>
+
